@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require_relative "core/list"
+require_relative "core_forms/form"
 require_relative "maps/map"
 
 module AppRail
   module Steps
     module Displayable
       include Steps::Core::List
+      include Steps::CoreForms::Form
       include Steps::Maps::Map
 
       BUTTON_STYLES = %i[primary outline danger textOnly].freeze
