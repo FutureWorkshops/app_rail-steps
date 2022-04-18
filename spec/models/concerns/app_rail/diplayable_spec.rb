@@ -1,4 +1,6 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require "spec_helper"
 
 # This file tests the module without using Rails
 RSpec.describe AppRail::Steps::Displayable do
@@ -8,6 +10,6 @@ RSpec.describe AppRail::Steps::Displayable do
 
   subject { test_struct.new(id) }
 
-  include_examples 'core_list'
-  include_examples 'maps_map'
+  include_examples "core_list"
+  include_examples "maps_map"
 end
