@@ -11,6 +11,7 @@ RSpec.describe AppRail::Steps::Displayable do
   subject { test_struct.new(id) }
 
   include_examples "core_list"
+  include_examples "core_stack"
   include_examples "core_forms_form"
   include_examples "maps_map"
 end
