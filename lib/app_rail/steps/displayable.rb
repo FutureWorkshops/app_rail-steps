@@ -1,10 +1,12 @@
 require_relative "core/list"
+require_relative "maps/map"
 
 module AppRail
   module Steps
     module Displayable
 
       include Steps::Core::List
+      include Steps::Maps::Map
 
       BUTTON_STYLES = [:primary, :outline, :danger, :textOnly]
       ON_SUCCESS_OPTIONS = [:none, :reload, :backward, :forward]

@@ -8,5 +8,6 @@ RSpec.describe AppRail::Steps::Displayable do
 
   subject { test_struct.new(id) }
 
-  include_examples 'list', { active_storage_enabled: false }
+  include_examples 'core_list'
+  include_examples 'maps_map'
 end
