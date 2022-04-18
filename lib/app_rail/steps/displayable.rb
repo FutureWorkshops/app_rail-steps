@@ -4,6 +4,8 @@ require_relative "core/list"
 require_relative "core/stack"
 require_relative "core_forms/form"
 require_relative "maps/map"
+require_relative "styled_content/grid"
+require_relative "styled_content/stack"
 
 module AppRail
   module Steps
@@ -12,6 +14,8 @@ module AppRail
       include Steps::Core::Stack
       include Steps::CoreForms::Form
       include Steps::Maps::Map
+      include Steps::StyledContent::Grid
+      include Steps::StyledContent::Stack
 
       BUTTON_STYLES = %i[primary outline danger textOnly].freeze
       ON_SUCCESS_OPTIONS = %i[none reload backward forward].freeze
