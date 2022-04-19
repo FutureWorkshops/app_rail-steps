@@ -22,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+#require the gem in your script
+require 'app_rail/steps'
+
+...
+#inside your module/class include the displayable modile
+include AppRail::Steps::Displayable
+
+...
+#now you can use the methods from the gem for example:
+def ar_list_item_as_json
+      ar_core_list_item(id: self.id, text: self.name, detail_text: self.detail_text)
+end
+
+
+```
 
 ## Development
 
@@ -32,7 +47,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/app_rail-steps.
+Bug reports and pull requests are welcome on GitHub at https://github.com/FutureWorkshops/app_rail-steps.
 
 ## License
 
