@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    app_rail-steps (0.2.5)
+    app_rail-steps (0.2.6)
 
 GEM
   remote: https://rubygems.org/
