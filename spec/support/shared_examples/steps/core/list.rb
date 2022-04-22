@@ -23,6 +23,14 @@ shared_examples_for "core_list" do |_param|
       it { expect(result[:id]).to eq 1 }
       it { expect(result[:imageURL]).to eq "https://test.com/image" }
     end
+
+    context "section name" do
+      let(:result) { subject.ar_core_list_item(text: "London", section_name: "UK") }
+
+      it { expect(result[:id]).to eq 1 }
+      it { expect(result[:text]).to eq "London" }
+      it { expect(result[:sectionName]).to eq "UK" }
+    end
   end
 
   describe "#ar_core_list_search_suggestion" do
