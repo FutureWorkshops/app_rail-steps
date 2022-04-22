@@ -6,6 +6,7 @@ require_relative "core_forms/form"
 require_relative "maps/map"
 require_relative "styled_content/grid"
 require_relative "styled_content/stack"
+require_relative "charts/dashboard"
 
 module AppRail
   module Steps
@@ -16,6 +17,7 @@ module AppRail
       include Steps::Maps::Map
       include Steps::StyledContent::Grid
       include Steps::StyledContent::Stack
+      include Steps::Charts::Dashboard
 
       BUTTON_STYLES = %i[primary outline danger textOnly].freeze
       ON_SUCCESS_OPTIONS = %i[none reload backward forward].freeze
