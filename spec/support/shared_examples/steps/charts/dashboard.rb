@@ -6,7 +6,7 @@ shared_examples_for "charts_dashboard" do |_param|
       let(:result) { subject.ar_charts_dashboard_statistic(id: 1, title: "London", text: "10,000,000") }
 
       it { expect(result[:id]).to eq "1" }
-      it { expect(result[:chartType]).to eq :none }
+      it { expect(result[:chartType]).to eq :statistic }
       it { expect(result[:title]).to eq "London" }
       it { expect(result[:text]).to eq "10,000,000" }
     end

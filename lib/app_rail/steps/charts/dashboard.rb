@@ -7,7 +7,7 @@ module AppRail
         def ar_charts_dashboard_statistic(id:, title:, text:)
           {
             id: id.to_s,
-            chartType: :none,
+            chartType: :statistic,
             title: title,
             text: text
           }.compact
