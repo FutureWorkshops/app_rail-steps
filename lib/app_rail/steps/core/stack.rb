@@ -5,16 +5,23 @@ module AppRail
     module Core
       module Stack
         CONTENT_MODE_OPTIONS = %i[scale_aspect_fill scale_aspect_fit].freeze
+        IMAGE_STYLE_OPTIONS = %i[full_width profile].freeze
 
         def ar_core_stack_text(text:, label: nil)
           { type: :text, label: label, text: text.to_s }.compact
         end
 
-        def ar_core_stack_image(preview_url:, attachment_url:, content_mode: :scale_aspect_fill)
+        def ar_core_stack_image(preview_url:, attachment_url:, image_style: :full_width, content_mode: :scale_aspect_fill)
           validate_content_mode!(content_mode)
+          validate_image_style!(image_style)
 
-          { type: :image, contentMode: camelcase_converter(content_mode.to_s, first_letter: :lower),
-            previewURL: preview_url, url: attachment_url }
+          {
+            type: :image,
+            contentMode: camelcase_converter(content_mode.to_s, first_letter: :lower),
+            previewURL: preview_url,
+            url: attachment_url,
+            imageStyle: camelcase_converter(image_style.to_s, first_letter: :lower)
+          }
         end
 
         def ar_core_stack_unsplash_image(image_url)
@@ -22,8 +29,7 @@ module AppRail
             unsplash_id = image_url.split("/").last
             image_url = "https://source.unsplash.com/#{unsplash_id}/800x600"
           end
-
-          { type: :image, previewURL: image_url, url: image_url }.compact
+          ar_core_stack_image(preview_url: image_url, attachment_url: image_url)
         end
 
         def ar_core_stack_video(preview_url:, attachment_url:)
@@ -84,8 +90,12 @@ module AppRail
 
         private
 
-        def validate_content_mode!(on_success)
-          raise "Unknown content_mode" unless CONTENT_MODE_OPTIONS.include?(on_success)
+        def validate_content_mode!(content_mode)
+          raise "Unknown content_mode" unless CONTENT_MODE_OPTIONS.include?(content_mode)
+        end
+
+        def validate_image_style!(image_style)
+          raise "Unknown image_style" unless IMAGE_STYLE_OPTIONS.include?(image_style)
         end
       end
     end
