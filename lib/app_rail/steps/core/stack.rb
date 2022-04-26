@@ -11,7 +11,7 @@ module AppRail
           { type: :text, label: label, text: text.to_s }.compact
         end
 
-        def ar_core_stack_image(preview_url:, attachment_url:, image_style: :full_width, content_mode: :scale_aspect_fill)
+        def ar_core_stack_image(preview_url:, attachment_url: preview_url, image_style: :full_width, content_mode: :scale_aspect_fill)
           validate_content_mode!(content_mode)
           validate_image_style!(image_style)
 
