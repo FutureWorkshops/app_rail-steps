@@ -7,8 +7,14 @@ module AppRail
         CONTENT_MODE_OPTIONS = %i[scale_aspect_fill scale_aspect_fit].freeze
         IMAGE_STYLE_OPTIONS = %i[full_width profile].freeze
 
-        def ar_core_stack_text(text:, label: nil)
-          { type: :text, label: label, text: text.to_s }.compact
+        def ar_core_stack_text(text:, label: nil, sf_symbol_name: nil, material_icon_name: nil)
+          {
+            type: :text,
+            label: label,
+            text: text.to_s,
+            sfSymbolName: sf_symbol_name,
+            materialIconName: material_icon_name
+          }.compact
         end
 
         def ar_core_stack_image(preview_url:, attachment_url: preview_url, image_style: :full_width, content_mode: :scale_aspect_fill)

@@ -2,11 +2,23 @@
 
 shared_examples_for "core_stack" do |_param|
   describe "#ar_core_stack_text" do
-    let(:result) { subject.ar_core_stack_text(text: "London", label: "City") }
+    context "text and label" do
+      let(:result) { subject.ar_core_stack_text(text: "London", label: "City") }
 
-    it { expect(result[:type]).to eq :text }
-    it { expect(result[:text]).to eq "London" }
-    it { expect(result[:label]).to eq "City" }
+      it { expect(result[:type]).to eq :text }
+      it { expect(result[:text]).to eq "London" }
+      it { expect(result[:label]).to eq "City" }
+    end
+
+    context "text and icons" do
+      let(:result) { subject.ar_core_stack_text(text: "London", sf_symbol_name: "map", material_icon_name: "map") }
+
+      it { expect(result[:type]).to eq :text }
+      it { expect(result[:text]).to eq "London" }
+      it { expect(result[:sfSymbolName]).to eq "map" }
+      it { expect(result[:materialIconName]).to eq "map" }
+      it { expect(result[:label]).to eq nil }
+    end
   end
 
   describe "#ar_core_stack_image" do
