@@ -4,11 +4,10 @@ module AppRail
   module Steps
     module CoreForms
       module Form
-        
         #
         # MBS - Note - ID on forms should be the value on the customOutput in the app.json for this field
         #
-        
+
         def ar_core_forms_form_section(label:, id:)
           raise "Missing label" if label.nil?
           raise "Missing id" if id.nil?
