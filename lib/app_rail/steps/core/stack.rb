@@ -58,7 +58,7 @@ module AppRail
             sfSymbolName: "trash", materialIconName: "delete" }.compact
         end
 
-        def ar_core_stack_url_button(url:, label:, method: :put, style: :primary, confirm_title: nil, confirm_text: nil, on_success: :reload, sf_symbol_name: nil, material_icon_name: nil)
+        def ar_core_stack_url_button(url:, label:, method: :patch, style: :primary, confirm_title: nil, confirm_text: nil, on_success: :reload, sf_symbol_name: nil, material_icon_name: nil)
           validate_on_success!(on_success)
           validate_button_style!(style)
 
