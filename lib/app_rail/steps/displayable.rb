@@ -19,19 +19,6 @@ module AppRail
       include Steps::StyledContent::Stack
       include Steps::Charts::Dashboard
 
-      BUTTON_STYLES = %i[primary outline danger textOnly].freeze
-      ON_SUCCESS_OPTIONS = %i[none reload backward forward].freeze
-
-      private
-
-      def validate_on_success!(on_success)
-        raise "Unknown on_success action" unless ON_SUCCESS_OPTIONS.include?(on_success)
-      end
-
-      def validate_button_style!(style)
-        raise "Unknown style" unless BUTTON_STYLES.include?(style)
-      end
-
       def camelcase_converter(string, first_letter: :upper)
         string = string.split("_").map(&:capitalize).join
         return string unless first_letter == :lower
