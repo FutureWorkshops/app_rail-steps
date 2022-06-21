@@ -3,6 +3,7 @@
 require_relative "core/list"
 require_relative "core/stack"
 require_relative "core_forms/form"
+require_relative "core_forms/question"
 require_relative "maps/map"
 require_relative "styled_content/grid"
 require_relative "styled_content/stack"
@@ -14,6 +15,7 @@ module AppRail
       include Steps::Core::List
       include Steps::Core::Stack
       include Steps::CoreForms::Form
+      include Steps::CoreForms::Question
       include Steps::Maps::Map
       include Steps::StyledContent::Grid
       include Steps::StyledContent::Stack
