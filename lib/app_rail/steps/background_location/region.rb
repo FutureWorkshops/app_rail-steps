@@ -3,7 +3,7 @@
 module AppRail
   module Steps
     module BackgroundLocation
-      module Regions
+      module Region
         def ar_background_location_region(id:, latitude:, longitude:, radius: 100, event: :entryAndExit)
           {
             id: id.to_s,

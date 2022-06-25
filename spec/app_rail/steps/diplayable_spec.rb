@@ -18,4 +18,5 @@ RSpec.describe AppRail::Steps::Displayable do
   include_examples "styled_content_grid"
   include_examples "styled_content_stack"
   include_examples "charts_dashboard"
+  include_examples "background_location_region"
 end

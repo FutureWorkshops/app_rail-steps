@@ -8,6 +8,7 @@ require_relative "maps/map"
 require_relative "styled_content/grid"
 require_relative "styled_content/stack"
 require_relative "charts/dashboard"
+require_relative "background_location/region"
 
 module AppRail
   module Steps
@@ -20,6 +21,7 @@ module AppRail
       include Steps::StyledContent::Grid
       include Steps::StyledContent::Stack
       include Steps::Charts::Dashboard
+      include Steps::BackgroundLocation::Region
 
       def camelcase_converter(string, first_letter: :upper)
         string = string.split("_").map(&:capitalize).join
