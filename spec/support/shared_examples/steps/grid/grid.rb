@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples_for "styled_content_grid" do |_param|
+shared_examples_for "grid_grid" do |_param|
   describe "#ar_styled_content_grid_large_section" do
     let(:result) { subject.ar_styled_content_grid_large_section(id: 0, text: "Mountains") }
 

@@ -2,7 +2,7 @@
 
 module AppRail
   module Steps
-    module StyledContent
+    module Grid
       module Grid
         def ar_styled_content_grid_large_section(id:, text:)
           raise "Missing id" if id.nil?

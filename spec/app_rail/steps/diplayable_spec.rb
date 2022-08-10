@@ -15,8 +15,7 @@ RSpec.describe AppRail::Steps::Displayable do
   include_examples "core_forms_form"
   include_examples "core_forms_question"
   include_examples "maps_map"
-  include_examples "styled_content_grid"
-  include_examples "styled_content_stack"
+  include_examples "grid_grid"
   include_examples "charts_dashboard"
   include_examples "background_location_region"
 end
