@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples_for "core_forms_form" do
+RSpec.describe AppRail::Steps::CoreForms::Form do
+  let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
+  let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
+  let(:id) { 1 }
+
+  subject { test_struct.new(id) }
   describe "#ar_core_forms_form_section" do
     let(:result) { subject.ar_core_forms_form_section(label: "Personal Information", id: 1) }
 

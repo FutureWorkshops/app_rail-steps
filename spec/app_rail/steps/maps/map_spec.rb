@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples_for "maps_map" do |_param|
+RSpec.describe AppRail::Steps::Maps::Map do
+  let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
+  let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
+  let(:id) { 1 }
+
+  subject { test_struct.new(id) }
   describe "#ar_maps_map_item" do
     context "text" do
       let(:result) { subject.ar_maps_map_item(text: "London", latitude: 51.5, longitude: 0.51) }

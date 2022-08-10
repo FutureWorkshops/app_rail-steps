@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples_for "core_stack" do |_param|
+RSpec.describe AppRail::Steps::Core::Stack do
+  let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
+  let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
+  let(:id) { 1 }
+
+  subject { test_struct.new(id) }
   describe "#ar_core_stack_text" do
     context "text and label" do
       let(:result) { subject.ar_core_stack_text(text: "London", label: "City") }
