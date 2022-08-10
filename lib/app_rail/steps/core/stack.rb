@@ -19,15 +19,21 @@ module AppRail
           }.compact
         end
 
-        def ar_core_stack_image(preview_url:, attachment_url: preview_url, image_style: :full_width, content_mode: :scale_aspect_fill)
+        def ar_core_stack_image(
+          image_url:,
+          full_screen_image_url: nil,
+          image_style: :full_width,
+          content_mode: :scale_aspect_fill
+        )
           validate_content_mode!(content_mode)
           validate_image_style!(image_style)
 
           {
             type: :image,
             contentMode: camelcase_converter(content_mode.to_s, first_letter: :lower),
-            previewURL: preview_url,
-            url: attachment_url,
+            previewURL: image_url,
+            fullScreenImageURL: full_screen_image_url,
+            fullScreenImageOnTap: !full_screen_image_url.nil?,
             imageStyle: camelcase_converter(image_style.to_s, first_letter: :lower)
           }
         end
@@ -37,7 +43,7 @@ module AppRail
             unsplash_id = image_url.split("/").last
             image_url = "https://source.unsplash.com/#{unsplash_id}/800x600"
           end
-          ar_core_stack_image(preview_url: image_url, attachment_url: image_url)
+          ar_core_stack_image(image_url: image_url, full_screen_image_url: image_url)
         end
 
         def ar_core_stack_video(preview_url:, attachment_url:)

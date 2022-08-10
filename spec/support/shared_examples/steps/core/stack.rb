@@ -23,21 +23,21 @@ shared_examples_for "core_stack" do |_param|
 
   describe "#ar_core_stack_image" do
     context "url" do
-      let(:result) { subject.ar_core_stack_image(preview_url: "https://test.com/preview", attachment_url: "https://test.com/attachment") }
+      let(:result) { subject.ar_core_stack_image(image_url: "https://test.com/preview", full_screen_image_url: "https://test.com/attachment") }
 
       it { expect(result[:type]).to eq :image }
       it { expect(result[:contentMode]).to eq "scaleAspectFill" }
       it { expect(result[:previewURL]).to eq "https://test.com/preview" }
-      it { expect(result[:url]).to eq "https://test.com/attachment" }
+      it { expect(result[:fullScreenImageURL]).to eq "https://test.com/attachment" }
     end
 
     context "style" do
-      let(:result) { subject.ar_core_stack_image(preview_url: "https://test.com/preview", attachment_url: "https://test.com/attachment", image_style: :profile) }
+      let(:result) { subject.ar_core_stack_image(image_url: "https://test.com/preview", full_screen_image_url: "https://test.com/attachment", image_style: :profile) }
 
       it { expect(result[:type]).to eq :image }
       it { expect(result[:contentMode]).to eq "scaleAspectFill" }
       it { expect(result[:previewURL]).to eq "https://test.com/preview" }
-      it { expect(result[:url]).to eq "https://test.com/attachment" }
+      it { expect(result[:fullScreenImageURL]).to eq "https://test.com/attachment" }
       it { expect(result[:imageStyle]).to eq "profile" }
     end
   end
@@ -47,7 +47,7 @@ shared_examples_for "core_stack" do |_param|
 
     it { expect(result[:type]).to eq :image }
     it { expect(result[:previewURL]).to eq "https://source.unsplash.com/100/800x600" }
-    it { expect(result[:url]).to eq "https://source.unsplash.com/100/800x600" }
+    it { expect(result[:fullScreenImageURL]).to eq "https://source.unsplash.com/100/800x600" }
   end
 
   describe "#ar_core_stack_video" do
