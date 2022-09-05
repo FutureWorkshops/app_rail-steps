@@ -86,8 +86,8 @@ RSpec.describe AppRail::Steps::Core::Stack do
     it { expect(result[:label]).to eq "Delete" }
     it { expect(result[:style]).to eq :danger }
     it { expect(result[:onSuccess]).to eq :backward }
-    it { expect(result[:sfSymbolName]).to eq "trash" }
-    it { expect(result[:materialIconName]).to eq "delete" }
+    it { expect(result[:sfSymbolName]).to eq :trash }
+    it { expect(result[:materialIconName]).to eq :delete }
     it { expect(result[:url]).to eq "https://test.com/delete" }
     it { expect(result[:method]).to eq :delete }
   end
