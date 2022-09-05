@@ -58,7 +58,7 @@ module AppRail
             materialIconName: material_icon_name }.compact
         end
 
-        def ar_core_stack_delete_button(url:, label: "Delete", method: :delete, style: :danger, on_success: :backward, confirm_title: "Delete?", confirm_text: "Are you sure?", sf_symbol_name: :trash, material_icon_name: :delete)
+        def ar_core_stack_delete_button(url:, label: "Delete", method: :delete, style: :danger, on_success: :backward, confirm_title: "Delete", confirm_text: "Are you sure?", sf_symbol_name: :trash, material_icon_name: :delete)
           ar_core_stack_validate_on_success!(on_success)
           ar_core_stack_validate_button_style!(style)
 
