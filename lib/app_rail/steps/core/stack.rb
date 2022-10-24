@@ -6,12 +6,16 @@ module AppRail
       module Stack
         CONTENT_MODE_OPTIONS = %i[scale_aspect_fill scale_aspect_fit].freeze
         IMAGE_STYLE_OPTIONS = %i[full_width profile].freeze
+        TEXT_STYLE_OPTIONS = %i[left large_center].freeze
         BUTTON_STYLES = %i[primary outline danger].freeze
         ON_SUCCESS_OPTIONS = %i[none reload backward forward].freeze
 
-        def ar_core_stack_text(text:, label: nil, sf_symbol_name: nil, material_icon_name: nil)
+        def ar_core_stack_text(text:, text_style: :left, label: nil, sf_symbol_name: nil, material_icon_name: nil)
+          validate_text_style!(text_style)
+
           {
             type: :text,
+            textStyle: camelcase_converter(text_style.to_s, first_letter: :lower),
             label: label,
             text: text.to_s,
             sfSymbolName: sf_symbol_name,
@@ -120,6 +124,10 @@ module AppRail
 
         def validate_image_style!(image_style)
           raise "Unknown image_style" unless IMAGE_STYLE_OPTIONS.include?(image_style)
+        end
+
+        def validate_text_style!(text_style)
+          raise "Unknown text_style" unless TEXT_STYLE_OPTIONS.include?(text_style)
         end
 
         def ar_core_stack_validate_on_success!(on_success)
