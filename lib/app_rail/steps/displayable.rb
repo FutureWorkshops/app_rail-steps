@@ -5,6 +5,7 @@ require_relative "core/stack"
 require_relative "core_forms/form"
 require_relative "core_forms/question"
 require_relative "maps/map"
+require_relative "maps/confirm_location"
 require_relative "grid/grid"
 require_relative "charts/dashboard"
 require_relative "background_location/region"
@@ -17,6 +18,7 @@ module AppRail
       include Steps::CoreForms::Form
       include Steps::CoreForms::Question
       include Steps::Maps::Map
+      include Steps::Maps::ConfirmLocation
       include Steps::Grid::Grid
       include Steps::Charts::Dashboard
       include Steps::BackgroundLocation::Region
