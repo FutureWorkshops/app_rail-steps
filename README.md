@@ -27,7 +27,7 @@ Or install it yourself as:
 require 'app_rail/steps'
 
 ...
-#inside your module/class include the displayable modile
+#inside your module/class include the displayable module
 include AppRail::Steps::Displayable
 
 ...
