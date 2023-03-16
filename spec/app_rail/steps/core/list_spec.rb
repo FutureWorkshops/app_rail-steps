@@ -37,6 +37,14 @@ RSpec.describe AppRail::Steps::Core::List do
       it { expect(result[:text]).to eq "London" }
       it { expect(result[:sectionName]).to eq "UK" }
     end
+
+    context "type" do
+      let(:result) { subject.ar_core_list_item(text: "London", type: "io.mobileworkflow.Question") }
+
+      it { expect(result[:id]).to eq 1 }
+      it { expect(result[:text]).to eq "London" }
+      it { expect(result[:type]).to eq "io.mobileworkflow.Question" }
+    end
   end
 
   describe "#ar_core_list_search_suggestion" do
