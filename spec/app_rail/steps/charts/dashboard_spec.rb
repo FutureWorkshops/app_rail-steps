@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::Charts::Dashboard do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#ar_charts_dashboard_statistic" do
     context "required" do
       let(:result) { subject.ar_charts_dashboard_statistic(id: 1, title: "London", text: "10,000,000") }

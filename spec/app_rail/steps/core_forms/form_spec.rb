@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::CoreForms::Form do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#ar_core_forms_form_section" do
     let(:result) { subject.ar_core_forms_form_section(label: "Personal Information", id: 1) }
 
@@ -28,8 +29,8 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:label]).to eq "Challenge Type" }
     it { expect(result[:multiple_selection_options]).to eq multiple_section_options }
     it { expect(result[:selection_type]).to eq :single }
-    it { expect(result[:optional]).to eq false }
-    it { expect(result[:show_other_option]).to eq false }
+    it { expect(result[:optional]).to be false }
+    it { expect(result[:show_other_option]).to be false }
   end
 
   describe "#ar_core_forms_form_multiple_selection_options" do
@@ -40,7 +41,7 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
 
     it { expect(result[:text]).to eq "Open for all" }
     it { expect(result[:hint]).to eq "Every user will be able to join" }
-    it { expect(result[:isPreSelected]).to eq false }
+    it { expect(result[:isPreSelected]).to be false }
   end
 
   describe "#ar_core_forms_form_number" do
@@ -53,7 +54,7 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:number_type]).to eq :number }
     it { expect(result[:label]).to eq "Target Amount" }
     it { expect(result[:placeholder]).to eq "100 Eur" }
-    it { expect(result[:optional]).to eq false }
+    it { expect(result[:optional]).to be false }
     it { expect(result[:default_text_answer]).to eq 50 }
   end
 
@@ -67,8 +68,8 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:item_type]).to eq :text }
     it { expect(result[:label]).to eq "Your Location" }
     it { expect(result[:placeholder]).to eq "London" }
-    it { expect(result[:optional]).to eq false }
-    it { expect(result[:multiline]).to eq false }
+    it { expect(result[:optional]).to be false }
+    it { expect(result[:multiline]).to be false }
     it { expect(result[:hint]).to eq "Maximum 20 characters" }
   end
 
@@ -79,15 +80,16 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:item_type]).to eq :date }
     it { expect(result[:date_type]).to eq :calendar }
     it { expect(result[:label]).to eq "Start Date" }
-    it { expect(result[:optional]).to eq true }
+    it { expect(result[:optional]).to be true }
   end
 
   describe "#ar_core_forms_form_time" do
     let(:result) { subject.ar_core_forms_form_time(label: "Start Time", id: 1, optional: true) }
+
     it { expect(result[:id]).to eq 1 }
     it { expect(result[:item_type]).to eq :time }
     it { expect(result[:label]).to eq "Start Time" }
-    it { expect(result[:optional]).to eq true }
+    it { expect(result[:optional]).to be true }
   end
 
   describe "#ar_core_forms_form_email" do
@@ -100,7 +102,7 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:item_type]).to eq :email }
     it { expect(result[:label]).to eq "Your Email" }
     it { expect(result[:placeholder]).to eq "example@email.com" }
-    it { expect(result[:optional]).to eq false }
+    it { expect(result[:optional]).to be false }
     it { expect(result[:default_text_answer]).to eq "montse@futureworkshops.com" }
   end
 
@@ -114,7 +116,7 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
     it { expect(result[:item_type]).to eq :secure }
     it { expect(result[:label]).to eq "Your Password" }
     it { expect(result[:placeholder]).to eq "Secret123" }
-    it { expect(result[:optional]).to eq false }
+    it { expect(result[:optional]).to be false }
     it { expect(result[:hint]).to eq "Must be at least 8 characters long" }
   end
 end

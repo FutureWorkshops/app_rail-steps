@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::Grid::Grid do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#ar_styled_content_grid_large_section" do
     let(:result) { subject.ar_styled_content_grid_large_section(id: 0, text: "Mountains") }
 

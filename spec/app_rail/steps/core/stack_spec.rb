@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::Core::Stack do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#ar_core_stack_text" do
     context "text and label" do
       let(:result) { subject.ar_core_stack_text(text: "London", label: "City") }
@@ -22,7 +23,7 @@ RSpec.describe AppRail::Steps::Core::Stack do
       it { expect(result[:text]).to eq "London" }
       it { expect(result[:sfSymbolName]).to eq "map" }
       it { expect(result[:materialIconName]).to eq "map" }
-      it { expect(result[:label]).to eq nil }
+      it { expect(result[:label]).to be_nil }
     end
   end
 
