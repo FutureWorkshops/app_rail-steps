@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::BackgroundLocation::Region do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#region" do
     context "required" do
       let(:result) { subject.ar_background_location_region(id: "home", latitude: 51.2, longitude: -0.5) }

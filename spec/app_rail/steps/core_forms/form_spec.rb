@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe AppRail::Steps::CoreForms::Form do
+  subject { test_struct.new(id) }
+
   let(:test_struct) { Struct.new(:id) { include AppRail::Steps::Displayable } }
   let(:test_class) { Class.new { include AppRail::Steps::Displayable } }
   let(:id) { 1 }
 
-  subject { test_struct.new(id) }
   describe "#ar_core_forms_form_section" do
     let(:result) { subject.ar_core_forms_form_section(label: "Personal Information", id: 1) }
 
@@ -84,6 +85,7 @@ RSpec.describe AppRail::Steps::CoreForms::Form do
 
   describe "#ar_core_forms_form_time" do
     let(:result) { subject.ar_core_forms_form_time(label: "Start Time", id: 1, optional: true) }
+
     it { expect(result[:id]).to eq 1 }
     it { expect(result[:item_type]).to eq :time }
     it { expect(result[:label]).to eq "Start Time" }
