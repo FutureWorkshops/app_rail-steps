@@ -23,7 +23,7 @@ RSpec.describe AppRail::Steps::Core::Stack do
       it { expect(result[:text]).to eq "London" }
       it { expect(result[:sfSymbolName]).to eq "map" }
       it { expect(result[:materialIconName]).to eq "map" }
-      it { expect(result[:label]).to eq nil }
+      it { expect(result[:label]).to be_nil }
     end
   end
 

@@ -22,7 +22,7 @@ RSpec.describe AppRail::Steps::CoreForms::Question do
     it { expect(result[:label]).to eq "Challenge Type" }
     it { expect(result[:multiple_selection_options]).to eq multiple_section_options }
     it { expect(result[:selection_type]).to eq :single }
-    it { expect(result[:optional]).to eq false }
-    it { expect(result[:show_other_option]).to eq false }
+    it { expect(result[:optional]).to be false }
+    it { expect(result[:show_other_option]).to be false }
   end
 end

@@ -2,6 +2,6 @@
 
 RSpec.describe AppRail::Steps do
   it "has a version number" do
-    expect(AppRail::Steps::VERSION).not_to be nil
+    expect(AppRail::Steps::VERSION).not_to be_nil
   end
 end
