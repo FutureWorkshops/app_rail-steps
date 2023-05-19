@@ -33,7 +33,7 @@ module AppRail
           }.compact
         end
 
-        def ar_charts_dashboard_bar_pie(id:, title:, values:, light_colors: nil, dark_colors: nil)
+        def ar_charts_dashboard_pie_chart(id:, title:, values:, light_colors: nil, dark_colors: nil)
           {
             id: id.to_s,
             chartType: :pie,
