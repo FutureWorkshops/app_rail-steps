@@ -4,7 +4,7 @@ module AppRail
   module Steps
     module Core
       module List
-        def ar_core_list_item(text:, id: self.id, detail_text: nil, section_name: nil, sf_symbol_name: nil, material_icon_name: nil, preview_url: nil)
+        def ar_core_list_item(text:, id: self.id, detail_text: nil, section_name: nil, sf_symbol_name: nil, material_icon_name: nil, preview_url: nil, type: nil)
           {
             id: id,
             text: text.to_s,
@@ -12,7 +12,8 @@ module AppRail
             sectionName: section_name.to_s,
             sfSymbolName: sf_symbol_name,
             materialIconName: material_icon_name,
-            imageURL: preview_url
+            imageURL: preview_url,
+            type: type
           }.compact
         end
 
